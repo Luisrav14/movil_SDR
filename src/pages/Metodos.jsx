@@ -1,9 +1,12 @@
 import PageTemplate from "../components/PageTemplate";
+import PaymentForm from "../components/PaymentForm";
 
 const Metodos = () => {
   return (
     <>
-      <PageTemplate title="Métodos de Pago"></PageTemplate>
+      <PageTemplate title="Métodos de Pago">
+        <PaymentForm />
+      </PageTemplate>
     </>
   );
 };

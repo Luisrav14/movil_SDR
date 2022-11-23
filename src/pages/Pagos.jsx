@@ -26,7 +26,7 @@ const Pagos = () => {
               <strong>Fecha de vencimiento:</strong> <span>31 de Diciembre del 2023</span>
             </ion-card-content>
 
-            <ion-button expand="block" color="success" style={{ margin: "1em" }}>
+            <ion-button expand="block" color="success" style={{ margin: "1em" }} href="/metodos">
               Pagar
             </ion-button>
           </ion-card>
