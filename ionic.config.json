@@ -1,0 +1,7 @@
+{
+  "name": "SDR",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
