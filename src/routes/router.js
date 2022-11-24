@@ -8,7 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import HomePage from "../pages/HomePage";
 import Pagos from "../pages/Pagos";
-import Metodos from "../pages/Metodos";
+import Metodos from "../pages/Payment";
 import Perfil from "../pages/Perfil";
 import { Propiedades } from "../pages/Propiedades.jsx";
 import { Vehiculos } from "../pages/Vehiculos.jsx";

@@ -1,7 +1,7 @@
 import PageTemplate from "../components/PageTemplate";
 import PaymentForm from "../components/PaymentForm";
 
-const Metodos = () => {
+const Payment = () => {
   return (
     <>
       <PageTemplate title="Métodos de Pago">
@@ -11,4 +11,4 @@ const Metodos = () => {
   );
 };
 
-export default Metodos;
+export default Payment;
