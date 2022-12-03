@@ -1,6 +1,6 @@
-import { Geolocation, Geoposition } from '@ionic-native/geolocation';
-import { IonButton, IonLoading, IonToast } from '@ionic/react';
 import React, { useState } from 'react';
+import { IonButton, IonLoading, IonToast } from '@ionic/react';
+import { Geolocation, Geoposition } from '@ionic-native/geolocation';
 
 interface LocationError {
     showError: boolean;
@@ -39,7 +39,7 @@ const GeolocationButton: React.FC = () => {
                 message={error.message}
                 duration={3000}
             />
-            <IonButton color="primary" onClick={getLocation}>{position ? `${position.coords.latitude} ${position.coords.longitude}` : "Obtner Ubicación"}</IonButton>
+            <IonButton color="primary" onClick={getLocation}>{position ? `${position.coords.latitude} ${position.coords.longitude}` : "Obtener Ubicación"}</IonButton>
         </>
     );
 };

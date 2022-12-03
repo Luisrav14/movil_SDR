@@ -1,14 +1,15 @@
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { IonLoading, IonToast } from "@ionic/react";
+import { useState } from "react";
+import { useHistory } from "react-router";
 
 function Copyright(props) {
   return (
@@ -23,9 +24,44 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+  const history = useHistory();
+
+  const [showToast, setShowToast] = useState(false);
+  const [msg, setMsg] = useState("");
+  const [showLoading, setShowLoading] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setShowLoading(true);
+
     const data = new FormData(event.currentTarget);
+
+    if (data.get("email") === "") {
+      setShowToast(true);
+      setMsg("Ingresa un email");
+    } else if (data.get("password") == "") {
+      setShowToast(true);
+      setMsg("Ingresa una Contraseña");
+    }
+
+    const data4Send = {
+      email: data.get("email"),
+      password: data.get("password"),
+    };
+
+    fetch(`https://backend.vecinoscomprometidos.com/api/auth`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data4Send),
+    })
+      .then((res) => console.log(res))
+      .then((res) => {
+        res.ok && history.push("/");
+      })
+      .then(() => setShowLoading(false));
+
     console.log({
       email: data.get("email"),
       password: data.get("password"),
@@ -35,6 +71,8 @@ export default function SignIn() {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
+        <IonToast isOpen={showToast} onDidDismiss={() => setShowToast(false)} message={msg} duration={1500} position="top" />
+        <IonLoading cssClass="" isOpen={showLoading} onDidDismiss={() => setShowLoading(false)} message={"Cargando"} duration={5000} />
         <CssBaseline />
         <Box
           sx={{
@@ -44,16 +82,17 @@ export default function SignIn() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <div style={{ marginBottom: "3em", textAlign: "center" }}>
+            <img src="https://ciudadanoscomprometidos.com.mx/SRD/assets/img/logo.png" width="50%" />
+            <ion-divider></ion-divider>
+          </div>
           <Typography component="h1" variant="h5">
             Iniciar Sesión
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField margin="normal" required fullWidth id="email" label="Correo electrónico" name="email" autoComplete="email" autoFocus />
             <TextField margin="normal" required fullWidth name="password" label="Contraseña" type="password" id="password" autoComplete="current-password" />
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }} href="/">
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Iniciar Sesión
             </Button>
             <Grid container>
@@ -70,4 +109,3 @@ export default function SignIn() {
     </ThemeProvider>
   );
 }
-
