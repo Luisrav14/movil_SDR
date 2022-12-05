@@ -8,7 +8,7 @@ import "../assets/css/Menu.css";
 const appPages = [
   {
     title: "Inicio",
-    url: "/",
+    url: "/home",
     iosIcon: homeSharp,
     mdIcon: homeSharp,
   },
@@ -38,7 +38,7 @@ const appPages = [
   },
   {
     title: "Cerrar Sesión",
-    url: "/login",
+    url: "/",
     iosIcon: logOutSharp,
     mdIcon: logOutSharp,
   },

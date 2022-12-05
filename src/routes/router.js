@@ -20,14 +20,14 @@ const Router = () => {
       <IonSplitPane contentId="main">
         <Menu />
         <IonRouterOutlet id="main">
-          <Route path="/*" component={HomePage} exact />
+          <Route path="/home" component={HomePage} exact />
           <Route path="/pagos" component={Pagos} exact />
           <Route path="/metodos" component={Metodos} exact />
           <Route path="/profile" component={Perfil} exact />
           <Route path="/propiedades" component={Propiedades} exact />
           <Route path="/vehiculos" component={Vehiculos} exact />
           <Route path="/register" component={Register} exact />
-          <Route path="/login" component={Login} exact />
+          <Route path="/" component={Login} exact />
           <Route path="/camara" component={Camara} exact />
         </IonRouterOutlet>
       </IonSplitPane>

@@ -30,18 +30,22 @@ export default function SignIn() {
   const [msg, setMsg] = useState("");
   const [showLoading, setShowLoading] = useState(false);
 
+  const handleShowToast = (msj) => {
+    setShowToast(true);
+    setMsg(msj);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowLoading(true);
 
     const data = new FormData(event.currentTarget);
 
     if (data.get("email") === "") {
-      setShowToast(true);
-      setMsg("Ingresa un email");
+      handleShowToast("Ingresa un email válido");
+      return;
     } else if (data.get("password") == "") {
-      setShowToast(true);
-      setMsg("Ingresa una Contraseña");
+      handleShowToast("Ingresa una contraseña");
+      return;
     }
 
     const data4Send = {
@@ -49,18 +53,18 @@ export default function SignIn() {
       password: data.get("password"),
     };
 
+    setShowLoading(true);
+
     fetch(`https://backend.vecinoscomprometidos.com/api/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data4Send),
-    })
-      .then((res) => console.log(res))
-      .then((res) => {
-        res.ok && history.push("/");
-      })
-      .then(() => setShowLoading(false));
+    }).then((res) => {
+      setShowLoading(false);
+      res.ok ? history.push("/home") : handleShowToast("Credenciales incorretas");
+    });
 
     console.log({
       email: data.get("email"),
@@ -71,7 +75,7 @@ export default function SignIn() {
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        <IonToast isOpen={showToast} onDidDismiss={() => setShowToast(false)} message={msg} duration={1500} position="top" />
+        <IonToast isOpen={showToast} color="danger" onDidDismiss={() => setShowToast(false)} message={msg} duration={1500} position="top" />
         <IonLoading cssClass="" isOpen={showLoading} onDidDismiss={() => setShowLoading(false)} message={"Cargando"} duration={5000} />
         <CssBaseline />
         <Box
