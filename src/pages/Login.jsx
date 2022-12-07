@@ -65,11 +65,6 @@ export default function SignIn() {
       setShowLoading(false);
       res.ok ? history.push("/home") : handleShowToast("Credenciales incorretas");
     });
-
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
   };
 
   return (

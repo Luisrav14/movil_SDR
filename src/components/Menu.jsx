@@ -4,6 +4,7 @@ import { IonContent, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonMenu
 import { fileTrayFullSharp, homeSharp, businessSharp, cardSharp, personSharp, fileTraySharp, returnDownForwardSharp, logOutOutline, hourglassOutline, carSport, businessOutline, logOutSharp } from "ionicons/icons";
 
 import "../assets/css/Menu.css";
+import Logo from "../assets/images/logo.png";
 
 const appPages = [
   {
@@ -52,8 +53,8 @@ const Menu = () => {
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>
-            {/* <img src="../assets/images/logo.png" width="50%" /> */}
-            <img src="https://ciudadanoscomprometidos.com.mx/SRD/assets/img/logo.png" width="50%" />
+            <img src={Logo} width="50%" />
+            {/* <img src="https://ciudadanoscomprometidos.com.mx/SRD/assets/img/logo.png" width="50%" /> */}
           </IonListHeader>
           {/* <IonNote style={{ marginTop: 10, marginLeft: 5 }}>SDR</IonNote> */}
           <IonNote style={{ marginTop: 10, marginLeft: 5 }}></IonNote>

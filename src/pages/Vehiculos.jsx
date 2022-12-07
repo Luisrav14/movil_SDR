@@ -13,10 +13,13 @@ export const Vehiculos = () => {
             <strong>Fecha de registro:</strong> <span>31 de Diciembre del 2023</span>
           </ion-card-content>
 
-          <ion-button expand="block" color="success" style={{ margin: "1em" }}>
+          <ion-button expand="block" color="success" style={{ margin: "1em" }} href="/pagos">
             Ver registros
           </ion-button>
         </ion-card>
+        <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+          <ion-fab-button href="/vehiculos-agregar">+</ion-fab-button>
+        </ion-fab>
       </PageTemplate>
     </>
   );

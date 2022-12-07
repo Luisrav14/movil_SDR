@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <>
       <PageTemplate title="Trámites y Servicios">
-        <GeolocationButton />
+        {/* <GeolocationButton /> */}
 
         <ion-card>
           <img src="https://images.unsplash.com/photo-1593182440959-9d5165b29b59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80" />

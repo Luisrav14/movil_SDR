@@ -9,10 +9,12 @@ import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import Pagos from "../pages/Pagos";
 import Metodos from "../pages/Payment";
+import PaymentSuccess from "../pages/PaymentSuccess.jsx";
 import Perfil from "../pages/Perfil";
 import { Propiedades } from "../pages/Propiedades.jsx";
 import Register from "../pages/Register";
 import { Vehiculos } from "../pages/Vehiculos.jsx";
+import { VehiculosAgregar } from "../pages/VehiculosAgregar.jsx";
 
 const Router = () => {
   return (
@@ -26,9 +28,11 @@ const Router = () => {
           <Route path="/profile" component={Perfil} exact />
           <Route path="/propiedades" component={Propiedades} exact />
           <Route path="/vehiculos" component={Vehiculos} exact />
+          <Route path="/vehiculos-agregar" component={VehiculosAgregar} exact />
           <Route path="/register" component={Register} exact />
           <Route path="/" component={Login} exact />
           <Route path="/camara" component={Camara} exact />
+          <Route path="/payment-success" component={PaymentSuccess} exact />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>
